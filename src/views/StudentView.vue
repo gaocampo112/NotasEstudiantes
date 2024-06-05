@@ -2,14 +2,13 @@
 <div class="contenedor">
     <div>
         <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
-            <div class="card infoEstudiante align-items-center"> 
+            <div class="card infoPersona align-items-center"> 
                 <img src="../image/usuario.png" height="100" width="100" />
                 <div class=" image d-flex flex-column justify-content-center  "> 
                     <span class="name mt-3"><strong>ID:</strong> {{ id }}</span> 
                     <span class="name mt-3"><strong>Nombre:</strong> {{ nombre }}</span> 
                     <span class="name mt-3"><strong>Apellido:</strong> {{ apellido }}</span> 
-                    <span class="name mt-3"><strong>Edad:</strong> {{ edad }}</span> 
-                    <span class="name mt-3"><strong>Grupo:</strong> {{grupo }}</span>       
+                    <span class="name mt-3"><strong>Edad:</strong> {{ edad }}</span>       
                 </div> 
                 <RouterLink to="/" class="routerlink">Salir</RouterLink>
             </div>
@@ -71,23 +70,7 @@
         <td>{{ artes.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Etica</th>
-        <td>{{ etica.nota1 }}</td>
-        <td>{{ etica.nota2 }}</td>
-        <td>{{ etica.nota3 }}</td>
-        <td>{{ etica.nota4 }}</td>
-        <td>{{ etica.final }}</td>
-        </tr>
-        <tr>
-        <th scope="row">Deportes</th>
-        <td>{{ deportes.nota1 }}</td>
-        <td>{{ deportes.nota2 }}</td>
-        <td>{{ deportes.nota3 }}</td>
-        <td>{{ deportes.nota4 }}</td>
-        <td>{{ deportes.final }}</td>
-        </tr>
-        <tr>
-        <th scope="row">Espaniol</th>
+        <th scope="row">Español</th>
         <td>{{ espaniol.nota1 }}</td>
         <td>{{ espaniol.nota2 }}</td>
         <td>{{ espaniol.nota3 }}</td>
@@ -142,6 +125,8 @@
         <td>{{ informatica.nota4 }}</td>
         <td>{{ informatica.final }}</td>
         </tr>
+
+
     </tbody>
     </table>
 </div>
@@ -195,21 +180,6 @@ const artes = {
     nota4: ref(0),
     final: computed(() => calcularNotas(artes.nota1.value, artes.nota2.value, artes.nota3.value, artes.nota4.value))
 }
-const etica = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(etica.nota1.value, etica.nota2.value, etica.nota3.value, etica.nota4.value))
-
-}
-const deportes = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(deportes.nota1.value, deportes.nota2.value, deportes.nota3.value, deportes.nota4.value))
-}
 const espaniol = {
     nota1: ref(0),
     nota2: ref(0),
@@ -261,7 +231,6 @@ const informatica = {
     final: computed(() => calcularNotas(informatica.nota1.value, informatica.nota2.value, informatica.nota3.value, informatica.nota4.value))
 }
 
-
 </script>
 
 
@@ -270,11 +239,10 @@ const informatica = {
     .contenedor{
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
-    .card{
-        border: 2px solid black;
-    }
+
 
     .notas{
         margin-top: 40px;
@@ -282,29 +250,4 @@ const informatica = {
         border: 2px solid black;
         box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.37);
     }
-
-    .infoEstudiante{
-        width: 280px;
-        height: auto;
-        padding: 30px;
-        background-color: rgba(255, 255, 255, 0.884);
-        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.37);
-    }
-
-    .routerlink{
-        margin-top: 20px;
-        text-decoration: none;
-        font-size: 18px;
-        letter-spacing: 1px;
-        color: black;
-        background-color: #d4d4d4;
-        padding: 2px 20px 2px 20px;
-        border-radius: 10px;
-        border: 2px solid black;
-        font-weight: bold;
-    }
-
-
-
-    
 </style>

@@ -13,6 +13,27 @@ const router = createRouter({
       name: 'student',
       component: () => import('../views/StudentView.vue')
     },
+    {
+      path: '/teacher',
+      name: 'teacher',
+      component: () => import('../views/TeacherView.vue')
+    },
+    {
+      path: '/biology',
+      name: 'biology',
+      component: () => import('../views/AsignaturesViews/BiologyView.vue')
+    },
+    {
+      path: '/physics',
+      name: 'physics',
+      component: () => import('../views/AsignaturesViews/physicsView.vue')
+    },
+    {
+      path: '/chemistry',
+      name: 'chemistry',
+      component: () => import('../views/AsignaturesViews/ChemistryView.vue')
+    }
+  
   ]
 })
 

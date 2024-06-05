@@ -11,7 +11,7 @@
             <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-2">
                 <input type="password" id="form2Example2" class="form-control" v-model="clave" />
-                <label class="form-label" for="form2Example2">Contrasenia</label>
+                <label class="form-label" for="form2Example2">Contraseña</label>
             </div>
             <!-- Submit button -->
             <RouterLink to="/student" class="routerlink">Ingresar</RouterLink>
@@ -68,4 +68,6 @@
     padding: 0px 15px 0px 15px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.37);
 }
+
+
 </style>
