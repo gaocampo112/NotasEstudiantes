@@ -19,20 +19,16 @@ const router = createRouter({
       component: () => import('../views/TeacherView.vue')
     },
     {
-      path: '/biology',
-      name: 'biology',
-      component: () => import('../views/AsignaturesViews/BiologyView.vue')
+      path: '/search',
+      name: 'search',
+      component: () => import('../components/BuscarEstudiante.vue')
     },
     {
-      path: '/physics',
-      name: 'physics',
-      component: () => import('../views/AsignaturesViews/physicsView.vue')
-    },
-    {
-      path: '/chemistry',
-      name: 'chemistry',
-      component: () => import('../views/AsignaturesViews/ChemistryView.vue')
+      path: '/califications',
+      name: 'califications',
+      component: () => import('../components/EnterCalifications.vue')
     }
+
   
   ]
 })

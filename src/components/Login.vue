@@ -1,26 +1,52 @@
 <template>
  <div class="containerLogin">
         <h1 class="title">SIGMA</h1>
-        <form class="sinbgInForm">
+        <form class="sinbgInForm" @submit="onSubmit" @submit.prevent="handleSubmit">
+            <div class="d-flex flex-row mb-2 ">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" v-model="opcionSeleccionada" value="profesor">
+                    <label class="form-check-label" for="flexRadioDefault1">Profesor</label>
+                </div>
+                <div class="form-check ms-4">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" v-model="opcionSeleccionada" value="estudiante">
+                    <label class="form-check-label" for="flexRadioDefault2">Estudiante</label>
+                </div>
+                </div>
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-2">
                 <input type="email" id="form2Example1" class="form-control" v-model="usuario"/>
                 <label class="form-label" for="form2Example1">Usuario</label>
             </div>
-
             <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-2">
                 <input type="password" id="form2Example2" class="form-control" v-model="clave" />
                 <label class="form-label" for="form2Example2">Contraseña</label>
             </div>
             <!-- Submit button -->
-            <RouterLink to="/student" class="routerlink">Ingresar</RouterLink>
+            <button class="routerlink routerlinkAsignature mt-1" type="submit">Ingresar</button>
         </form>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
+const opcionSeleccionada = ref('')
+
+const onSubmit = () => {
+    if(opcionSeleccionada.value === 'profesor')
+    {
+        router.push({ name: 'teacher' });
+    }else if(opcionSeleccionada.value === 'estudiante'){
+        router.push({ name: 'student' });
+    }
+    else{
+        router.push({ name: 'login' });
+    }
+
+}
 
 </script>
 

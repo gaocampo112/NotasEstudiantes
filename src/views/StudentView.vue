@@ -242,8 +242,6 @@ const informatica = {
         flex-wrap: wrap;
     }
 
-
-
     .notas{
         margin-top: 40px;
         width: 50vw;   

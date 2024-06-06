@@ -16,25 +16,25 @@
     </div>
     <div class="mt-4 mb-4 p-3 "> 
         <div class="card  align-items-center"> 
-            <h2><strong>Asignatura</strong></h2>
+            <h2><strong>Elija la asignatura a ingresar: </strong></h2>
             <div class="containerAsignature">
                 <div class="columAsignature">
-                    <RouterLink to="/biology" class="routerlink routerlinkAsignature">Biologia</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Fisica</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Quimica</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Economia</RouterLink>
+                    <button @click="goToCalifications(1)" class="routerlink routerlinkAsignature">Biology</button>
+                    <button @click="goToCalifications(2)" class="routerlink routerlinkAsignature">Fisica</button>
+                    <button @click="goToCalifications(3)" class="routerlink routerlinkAsignature">Quimica</button>
+                    <button @click="goToCalifications(4)" class="routerlink routerlinkAsignature">Economia</button>
                 </div>
                 <div class="columAsignature">
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Artes</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Filosofia</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Informatica</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Español</RouterLink>
+                    <button @click="goToCalifications(5)" class="routerlink routerlinkAsignature">Artes</button>
+                    <button @click="goToCalifications(6)" class="routerlink routerlinkAsignature">Español</button>
+                    <button @click="goToCalifications(7)" class="routerlink routerlinkAsignature">Ingles</button>
+                    <button @click="goToCalifications(8)" class="routerlink routerlinkAsignature">Matematicas</button>         
                 </div>
                 <div class="columAsignature">
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Ingles</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Matematicas</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Geometria</RouterLink>
-                    <RouterLink to="/" class="routerlink routerlinkAsignature">Estadistica</RouterLink>
+                    <button @click="goToCalifications(9)" class="routerlink routerlinkAsignature">Geometria</button>
+                    <button @click="goToCalifications(10)" class="routerlink routerlinkAsignature">Estadistica</button>
+                    <button @click="goToCalifications(11)" class="routerlink routerlinkAsignature">Filosofia</button>
+                    <button @click="goToCalifications(12)" class="routerlink routerlinkAsignature">Informatica</button>
                 </div>
             </div>
         </div>
@@ -45,6 +45,17 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useRegisterAsignatureId } from '../stores/idStore'
+
+const router = useRouter();
+const registrarStore = useRegisterAsignatureId();
+
+const goToCalifications = (id) => {
+  registrarStore.guardarRegistro(id)  
+  router.push({ name: 'search' });
+};
+
 const id = ref('')
 const nombre = ref('')
 const apellido = ref('')
