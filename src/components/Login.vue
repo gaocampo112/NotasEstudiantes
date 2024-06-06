@@ -1,7 +1,7 @@
 <template>
  <div class="containerLogin">
         <h1 class="title">SIGMA</h1>
-        <form class="sinbgInForm" @submit="onSubmit" @submit.prevent="handleSubmit">
+        <Form class="sinbgInForm" @submit="onSubmit"  :validation-schema="schemaLogin">
             <div class="d-flex flex-row mb-2 ">
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" v-model="opcionSeleccionada" value="profesor">
@@ -13,39 +13,64 @@
                 </div>
                 </div>
             <!-- Email input -->
-            <div data-mdb-input-init class="form-outline mb-2">
-                <input type="email" id="form2Example1" class="form-control" v-model="usuario"/>
+            <div data-mdb-input-init class="form-outline mb-2 d-flex flex-column containerInput">
+                <Field type="text" name="id" id="form2Example1" class="form inputlogin" v-model="usuario"/>
                 <label class="form-label" for="form2Example1">Usuario</label>
+
             </div>
             <!-- Password input -->
-            <div data-mdb-input-init class="form-outline mb-2">
-                <input type="password" id="form2Example2" class="form-control" v-model="clave" />
+            <div data-mdb-input-init class="form-outline mb-2 d-flex flex-column containerInput">
+                <Field type="password" name="password" id="form2Example2" class="form inputlogin" v-model="clave" />
+                
                 <label class="form-label" for="form2Example2">Contraseña</label>
+
+                
             </div>
             <!-- Submit button -->
             <button class="routerlink routerlinkAsignature mt-1" type="submit">Ingresar</button>
-        </form>
+        </Form>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import { schemaLogin } from '@/schemas/validationSchema';
+import AlumnosDb from '@/table/BaseDatosPruebaAlumnos';
+import ProfesorDb from '@/table/BaseDatosPruebaProfesores';
+import {uselogin} from '../stores/loginStore'
 
+const registrarStore = uselogin();
 const router = useRouter();
 const opcionSeleccionada = ref('')
+const usuario = ref('')
+const clave = ref('')
 
 const onSubmit = () => {
     if(opcionSeleccionada.value === 'profesor')
     {
+        for(let i = 0; i < ProfesorDb.length; i++)
+        {
+            if(ProfesorDb[i].idProfesor == usuario.value && ProfesorDb[i].contrasenia == clave.value){
+                registrarStore.iniciarSesion(usuario.value)
+                router.push({ name: 'student' });
+                return
+            }
+        }
         router.push({ name: 'teacher' });
     }else if(opcionSeleccionada.value === 'estudiante'){
-        router.push({ name: 'student' });
+        for(let i = 0; i < AlumnosDb.length; i++)
+        {
+            if(AlumnosDb[i].idAlumno == usuario.value && AlumnosDb[i].contrasenia == clave.value){
+                registrarStore.iniciarSesion(usuario.value)
+                router.push({ name: 'student' });
+                return
+            }
+        }
     }
-    else{
-        router.push({ name: 'login' });
-    }
-
+    alert("Usuario o contraseña incorrecta")
+    
 }
 
 </script>
@@ -94,6 +119,8 @@ const onSubmit = () => {
     padding: 0px 15px 0px 15px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.37);
 }
+
+
 
 
 </style>

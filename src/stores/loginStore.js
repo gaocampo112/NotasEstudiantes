@@ -3,10 +3,8 @@ import {ref} from 'vue'
 
 export const uselogin = defineStore('Login',() =>{
     const username = ref ('')
-    const password = ref('')
-    const iniciarSesion = (usernameForm, passwordForm) =>{
+    const iniciarSesion = (usernameForm) =>{
         username.value = usernameForm;
-        password.value = passwordForm;
     }
-    return{username, password, iniciarSesion}
+    return{username, iniciarSesion}
 })

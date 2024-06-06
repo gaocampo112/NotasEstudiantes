@@ -5,10 +5,10 @@
             <div class="card infoPersona align-items-center"> 
                 <img src="../image/usuario.png" height="100" width="100" />
                 <div class=" image d-flex flex-column justify-content-center  "> 
-                    <span class="name mt-3"><strong>ID:</strong> {{ id }}</span> 
-                    <span class="name mt-3"><strong>Nombre:</strong> {{ nombre }}</span> 
-                    <span class="name mt-3"><strong>Apellido:</strong> {{ apellido }}</span> 
-                    <span class="name mt-3"><strong>Edad:</strong> {{ edad }}</span>       
+                    <span class="name mt-3"><strong>ID: {{ id }}</strong></span> 
+                    <span class="name mt-3"><strong>Nombre: {{ nombre }}</strong> </span> 
+                    <span class="name mt-3"><strong>Apellido: {{ apellido }}</strong> </span> 
+                    <span class="name mt-3"><strong>Edad: {{ edad }}</strong></span>       
                 </div> 
                 <RouterLink to="/" class="routerlink">Salir</RouterLink>
             </div>
@@ -138,11 +138,31 @@
 <script setup>
 import {calcularNotas} from "../helper/estudiantes/calculos.js"
 import { ref, computed } from 'vue'
+import AlumnosDb from '@/table/BaseDatosPruebaAlumnos';
+import {uselogin} from '../stores/loginStore';
+
+const useStore = uselogin()
 const id = ref("")
 const nombre = ref("")
 const apellido = ref("")
 const edad = ref("")
-const grupo = ref("")
+let i = 0
+
+while(AlumnosDb[i].idAlumno != useStore.username)
+{
+    i++
+}
+id.value = AlumnosDb[i].idAlumno
+nombre.value = AlumnosDb[i].nombre
+apellido.value = AlumnosDb[i].apellido
+edad.value = AlumnosDb[i].edad
+i=0
+
+
+
+
+
+
 const biologia = {
     nota1: ref(0),
     nota2: ref(0),
