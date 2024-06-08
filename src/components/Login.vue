@@ -54,11 +54,10 @@ const onSubmit = () => {
         {
             if(ProfesorDb[i].idProfesor == usuario.value && ProfesorDb[i].contrasenia == clave.value){
                 registrarStore.iniciarSesion(usuario.value)
-                router.push({ name: 'student' });
+                router.push({ name: 'teacher' });
                 return
             }
         }
-        router.push({ name: 'teacher' });
     }else if(opcionSeleccionada.value === 'estudiante'){
         for(let i = 0; i < AlumnosDb.length; i++)
         {
@@ -68,9 +67,9 @@ const onSubmit = () => {
                 return
             }
         }
+
     }
-    alert("Usuario o contraseña incorrecta")
-    
+    alert("Usuario o contraseña incorrecta") 
 }
 
 </script>

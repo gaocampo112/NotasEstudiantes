@@ -22,7 +22,10 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useIdIngresaNotas } from '../stores/BuscarEstudianteStore'
+import AlumnosDb from '@/table/BaseDatosPruebaAlumnos';
 
+const idEstudanteStore = useIdIngresaNotas();
 const router = useRouter();
 const idStudent = ref('');
 
@@ -31,9 +34,19 @@ const goToTeacher = () => {
 };
 
 const onSubmit = () => {
-    /* Aca tenemos que crear una validacion para saber si el id del estudante existe o no */
-    router.push({ name: 'califications' });
+    for(let i = 0; i < AlumnosDb.length; i++){
+        if(idStudent.value == AlumnosDb[i].idAlumno)
+        {
+            idEstudanteStore.guardarId(idStudent.value)
+            router.push({ name: 'califications' });
+            return
+        }
+    }
+    alert("ID del estudiante no encontrado")
 }
+    
+
+
 </script>
 
 <style scoped>

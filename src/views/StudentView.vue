@@ -5,10 +5,10 @@
             <div class="card infoPersona align-items-center"> 
                 <img src="../image/usuario.png" height="100" width="100" />
                 <div class=" image d-flex flex-column justify-content-center  "> 
-                    <span class="name mt-3"><strong>ID: {{ id }}</strong></span> 
-                    <span class="name mt-3"><strong>Nombre: {{ nombre }}</strong> </span> 
-                    <span class="name mt-3"><strong>Apellido: {{ apellido }}</strong> </span> 
-                    <span class="name mt-3"><strong>Edad: {{ edad }}</strong></span>       
+                    <span class="name mt-3"><strong>ID: </strong>{{ id }}</span> 
+                    <span class="name mt-3"><strong>Nombre: </strong>{{ nombre }}</span> 
+                    <span class="name mt-3"><strong>Apellido: </strong>{{ apellido }}</span> 
+                    <span class="name mt-3"><strong>Edad: </strong>{{ edad }}</span>       
                 </div> 
                 <RouterLink to="/" class="routerlink">Salir</RouterLink>
             </div>
@@ -140,12 +140,14 @@ import {calcularNotas} from "../helper/estudiantes/calculos.js"
 import { ref, computed } from 'vue'
 import AlumnosDb from '@/table/BaseDatosPruebaAlumnos';
 import {uselogin} from '../stores/loginStore';
+import { obtenerNotas } from "@/helper/estudiantes/obtenerNotas.js";
 
 const useStore = uselogin()
 const id = ref("")
 const nombre = ref("")
 const apellido = ref("")
 const edad = ref("")
+const mostrarNotas = obtenerNotas(useStore.username);
 let i = 0
 
 while(AlumnosDb[i].idAlumno != useStore.username)
@@ -158,98 +160,234 @@ apellido.value = AlumnosDb[i].apellido
 edad.value = AlumnosDb[i].edad
 i=0
 
+let biologia;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 1) {
+    biologia = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(biologia.nota1.value, biologia.nota2.value, biologia.nota3.value, biologia.nota4.value))
+    };
+} else {
+    biologia = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
+}
 
+let fisica;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 2) {
+    fisica = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(fisica.nota1.value, fisica.nota2.value, fisica.nota3.value, fisica.nota4.value))
+    };
+} else {
+    fisica = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
+}
 
+let quimica;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 3) {
+    quimica = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(quimica.nota1.value, quimica.nota2.value, quimica.nota3.value, quimica.nota4.value))
+    };
+} else {
+    quimica = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
+}
 
+let economia;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 4) {
+    economia = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(economia.nota1.value, economia.nota2.value, economia.nota3.value, economia.nota4.value))
+    };
+} else {
+    economia = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
+}
 
+let artes;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 5) {
+    artes = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(artes.nota1.value, artes.nota2.value, artes.nota3.value, artes.nota4.value))
+    };
+} else {
+    artes = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
+}
 
-const biologia = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(biologia.nota1.value, biologia.nota2.value, biologia.nota3.value, biologia.nota4.value))
+let espaniol;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 6) {
+    espaniol = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(espaniol.nota1.value, espaniol.nota2.value, espaniol.nota3.value, espaniol.nota4.value))
+    };
+} else {
+    espaniol = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
 }
-const fisica = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(fisica.nota1.value, fisica.nota2.value, fisica.nota3.value, fisica.nota4.value))
-}
-const quimica = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(quimica.nota1.value, quimica.nota2.value, quimica.nota3.value, quimica.nota4.value))
 
+let ingles;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 7) {
+    ingles = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(ingles.nota1.value, ingles.nota2.value, ingles.nota3.value, ingles.nota4.value))
+    };
+} else {
+    ingles = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
 }
-const economia = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(economia.nota1.value, economia.nota2.value, economia.nota3.value, economia.nota4.value))
 
+let matematicas;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 8) {
+    matematicas = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(matematicas.nota1.value, matematicas.nota2.value, matematicas.nota3.value, matematicas.nota4.value))
+    };
+} else {
+    matematicas = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
 }
-const artes = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(artes.nota1.value, artes.nota2.value, artes.nota3.value, artes.nota4.value))
-}
-const espaniol = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(espaniol.nota1.value, espaniol.nota2.value, espaniol.nota3.value, espaniol.nota4.value))
-}
-const ingles = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(ingles.nota1.value, ingles.nota2.value, ingles.nota3.value, ingles.nota4.value))
-}
-const matematicas = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(matematicas.nota1.value, matematicas.nota2.value, matematicas.nota3.value, matematicas.nota4.value))
-}
-const geometria = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(geometria.nota1.value, geometria.nota2.value, geometria.nota3.value, geometria.nota4.value))
 
+let geometria;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 9) {
+    geometria = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(geometria.nota1.value, geometria.nota2.value, geometria.nota3.value, geometria.nota4.value))
+    };
+} else {
+    geometria = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
 }
-const estadistica = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(estadistica.nota1.value, estadistica.nota2.value, estadistica.nota3.value, estadistica.nota4.value))
+
+let estadistica;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 10) {
+    estadistica = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(estadistica.nota1.value, estadistica.nota2.value, estadistica.nota3.value, estadistica.nota4.value))
+    };
+} else {
+    estadistica = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
 }
-const filosofia = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(filosofia.nota1.value, filosofia.nota2.value, filosofia.nota3.value, filosofia.nota4.value))
+
+let filosofia;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 11) {
+    filosofia = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(filosofia.nota1.value, filosofia.nota2.value, filosofia.nota3.value, filosofia.nota4.value))
+    };
+} else {
+    filosofia = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
 }
-const informatica = {
-    nota1: ref(0),
-    nota2: ref(0),
-    nota3: ref(0),
-    nota4: ref(0),
-    final: computed(() => calcularNotas(informatica.nota1.value, informatica.nota2.value, informatica.nota3.value, informatica.nota4.value))
+
+let informatica;
+if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 12) {
+    informatica = {
+        nota1: ref(mostrarNotas.nota1),
+        nota2: ref(mostrarNotas.nota2),
+        nota3: ref(mostrarNotas.nota3),
+        nota4: ref(mostrarNotas.nota4),
+        final: computed(() => calcularNotas(informatica.nota1.value, informatica.nota2.value, informatica.nota3.value, informatica.nota4.value))
+    };
+} else {
+    informatica = {
+        nota1: ref(0),
+        nota2: ref(0),
+        nota3: ref(0),
+        nota4: ref(0),
+        final: ref(0)
+    };
 }
+
 
 </script>
 

@@ -47,20 +47,34 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useRegisterAsignatureId } from '../stores/idStore'
+import ProfesorDb from '@/table/BaseDatosPruebaProfesores';
+import {uselogin} from '../stores/loginStore';
 
 const router = useRouter();
 const registrarStore = useRegisterAsignatureId();
+const id = ref('')
+const nombre = ref('')
+const apellido = ref('')
+const edad = ref('')
+const useStore = uselogin()
+let i = 0
 
 const goToCalifications = (id) => {
   registrarStore.guardarRegistro(id)  
   router.push({ name: 'search' });
 };
 
-const id = ref('')
-const nombre = ref('')
-const apellido = ref('')
-const edad = ref('')
-const asignatura = ref('')
+while(ProfesorDb[i].idProfesor != useStore.username)
+{
+    i++
+}
+id.value = ProfesorDb[i].idProfesor
+nombre.value = ProfesorDb[i].nombre
+apellido.value = ProfesorDb[i].apellido
+edad.value = ProfesorDb[i].edad
+i=0
+
+
 </script>
 
 <style scoped>

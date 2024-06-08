@@ -28,9 +28,11 @@ const router = createRouter({
       name: 'califications',
       component: () => import('../components/EnterCalifications.vue')
     }
-
-  
   ]
 })
 
-export default router
+
+
+export default router;
+
+
