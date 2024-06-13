@@ -12,21 +12,15 @@
                     <label class="form-check-label" for="flexRadioDefault2">Student</label>
                 </div>
                 </div>
-            <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-2 d-flex flex-column containerInput">
                 <Field type="text" name="id" id="form2Example1" class="form inputlogin" v-model="user"/>
                 <label class="form-label" for="form2Example1">User ID</label>
-
             </div>
-            <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-2 d-flex flex-column containerInput">
                 <Field type="password" name="password" id="form2Example2" class="form inputlogin" v-model="password" />
                 
-                <label class="form-label" for="form2Example2">Password</label>
-
-                
+                <label class="form-label" for="form2Example2">Password</label>     
             </div>
-            <!-- Submit button -->
             <button class="routerlink routerlinkSubject mt-1" type="submit">Login</button>
         </Form>
     </div>
@@ -35,7 +29,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { Form, Field, ErrorMessage } from 'vee-validate';
+import { Form, Field } from 'vee-validate';
 import { schemaLogin } from '@/schemas/validationSchema';
 import StudentDb from '@/table/DataBaseTestStudent';
 import TeacherDb from '@/table/DataBaseTestTeacher';
