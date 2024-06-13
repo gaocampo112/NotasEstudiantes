@@ -1,129 +1,129 @@
 <template>
-<div class="contenedor">
+<div class="container">
     <div>
         <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
-            <div class="card infoPersona align-items-center"> 
+            <div class="card infoPerson align-items-center"> 
                 <img src="../image/usuario.png" height="100" width="100" />
                 <div class=" image d-flex flex-column justify-content-center  "> 
                     <span class="name mt-3"><strong>ID: </strong>{{ id }}</span> 
-                    <span class="name mt-3"><strong>Nombre: </strong>{{ nombre }}</span> 
-                    <span class="name mt-3"><strong>Apellido: </strong>{{ apellido }}</span> 
-                    <span class="name mt-3"><strong>Edad: </strong>{{ edad }}</span>       
+                    <span class="name mt-3"><strong>Name: </strong>{{ name }}</span> 
+                    <span class="name mt-3"><strong>Last Name: </strong>{{ lastName }}</span> 
+                    <span class="name mt-3"><strong>Age: </strong>{{ edad }}</span>       
                 </div> 
-                <RouterLink to="/" class="routerlink">Salir</RouterLink>
+                <RouterLink to="/" class="routerlink">Log Out</RouterLink>
             </div>
         </div>
     </div>
-    <table class="table notas">
+    <table class="table grades">
         <div>
             
         </div>
     <thead>
         <tr>
-        <th scope="col">Asignaturas</th>
-        <th scope="col">Nota 1</th>
-        <th scope="col">Nota 2</th>
-        <th scope="col">Nota 3</th>
-        <th scope="col">Nota 4</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Calification 1</th>
+        <th scope="col">Calification 2</th>
+        <th scope="col">Calification 3</th>
+        <th scope="col">Calification 4</th>
         <th scope="col">Final</th>
         </tr>
     </thead> 
     <tbody>
         <tr>
-        <th scope="row">Biologia</th>
-        <td>{{ biologia.nota1 }}</td>
-        <td>{{ biologia.nota2 }}</td>
-        <td>{{ biologia.nota3 }}</td>
-        <td>{{ biologia.nota4 }}</td>
-        <td>{{ biologia.final }}</td>
+        <th scope="row">Biology</th>
+        <td>{{ biology.grade1 }}</td>
+        <td>{{ biology.grade2 }}</td>
+        <td>{{ biology.grade3 }}</td>
+        <td>{{ biology.grade4 }}</td>
+        <td>{{ biology.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Ficica</th>
-        <td>{{ fisica.nota1 }}</td>
-        <td>{{ fisica.nota2 }}</td>
-        <td>{{ fisica.nota3 }}</td>
-        <td>{{ fisica.nota4 }}</td>
-        <td>{{ fisica.final }}</td>
+        <th scope="row">Physics</th>
+        <td>{{ physics.grade1 }}</td>
+        <td>{{ physics.grade2 }}</td>
+        <td>{{ physics.grade3 }}</td>
+        <td>{{ physics.grade4 }}</td>
+        <td>{{ physics.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Quimica</th>
-        <td>{{ quimica.nota1 }}</td>
-        <td>{{ quimica.nota2 }}</td>
-        <td>{{ quimica.nota3 }}</td>
-        <td>{{ quimica.nota4 }}</td>
-        <td>{{ quimica.final }}</td>
+        <th scope="row">Chemistry</th>
+        <td>{{ chemistry.grade1 }}</td>
+        <td>{{ chemistry.grade2 }}</td>
+        <td>{{ chemistry.grade3 }}</td>
+        <td>{{ chemistry.grade4 }}</td>
+        <td>{{ chemistry.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Economia</th>
-        <td>{{ economia.nota1 }}</td>
-        <td>{{ economia.nota2 }}</td>
-        <td>{{ economia.nota3 }}</td>
-        <td>{{ economia.nota4 }}</td>
-        <td>{{ economia.final }}</td>
+        <th scope="row">Economy</th>
+        <td>{{ economy.grade1 }}</td>
+        <td>{{ economy.grade2 }}</td>
+        <td>{{ economy.grade3 }}</td>
+        <td>{{ economy.grade4 }}</td>
+        <td>{{ economy.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Artes</th>
-        <td>{{ artes.nota1 }}</td>
-        <td>{{ artes.nota2 }}</td>
-        <td>{{ artes.nota3 }}</td>
-        <td>{{ artes.nota4 }}</td>
-        <td>{{ artes.final }}</td>
+        <th scope="row">Arts</th>
+        <td>{{ arts.grade1 }}</td>
+        <td>{{ arts.grade2 }}</td>
+        <td>{{ arts.grade3 }}</td>
+        <td>{{ arts.grade4 }}</td>
+        <td>{{ arts.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Español</th>
-        <td>{{ espaniol.nota1 }}</td>
-        <td>{{ espaniol.nota2 }}</td>
-        <td>{{ espaniol.nota3 }}</td>
-        <td>{{ espaniol.nota4 }}</td>
-        <td>{{ espaniol.final }}</td>
+        <th scope="row">Spanish</th>
+        <td>{{ spanish.grade1 }}</td>
+        <td>{{ spanish.grade2 }}</td>
+        <td>{{ spanish.grade3 }}</td>
+        <td>{{ spanish.grade4 }}</td>
+        <td>{{ spanish.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Ingles</th>
-        <td>{{ ingles.nota1 }}</td>
-        <td>{{ ingles.nota2 }}</td>
-        <td>{{ ingles.nota3 }}</td>
-        <td>{{ ingles.nota4 }}</td>
-        <td>{{ ingles.final }}</td>
+        <th scope="row">English</th>
+        <td>{{ english.grade1 }}</td>
+        <td>{{ english.grade2 }}</td>
+        <td>{{ english.grade3 }}</td>
+        <td>{{ english.grade4 }}</td>
+        <td>{{ english.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Matematicas</th>
-        <td>{{ matematicas.nota1 }}</td>
-        <td>{{ matematicas.nota2 }}</td>
-        <td>{{ matematicas.nota3 }}</td>
-        <td>{{ matematicas.nota4 }}</td>
-        <td>{{ matematicas.final }}</td>
+        <th scope="row">Math</th>
+        <td>{{ math.grade1 }}</td>
+        <td>{{ math.grade2 }}</td>
+        <td>{{ math.grade3 }}</td>
+        <td>{{ math.grade4 }}</td>
+        <td>{{ math.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Geometria</th>
-        <td>{{ geometria.nota1 }}</td>
-        <td>{{ geometria.nota2 }}</td>
-        <td>{{ geometria.nota3 }}</td>
-        <td>{{ geometria.nota4 }}</td>
-        <td>{{ geometria.final }}</td>
+        <th scope="row">Geometry</th>
+        <td>{{ geometry.grade1 }}</td>
+        <td>{{ geometry.grade2 }}</td>
+        <td>{{ geometry.grade3 }}</td>
+        <td>{{ geometry.grade4 }}</td>
+        <td>{{ geometry.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Estadistica</th>
-        <td>{{ estadistica.nota1 }}</td>
-        <td>{{ estadistica.nota2 }}</td>
-        <td>{{ estadistica.nota3 }}</td>
-        <td>{{ estadistica.nota4 }}</td>
-        <td>{{ estadistica.final }}</td>
+        <th scope="row">Statistics</th>
+        <td>{{ statistics.grade1 }}</td>
+        <td>{{ statistics.grade2 }}</td>
+        <td>{{ statistics.grade3 }}</td>
+        <td>{{ statistics.grade4 }}</td>
+        <td>{{ statistics.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Filosofia</th>
-        <td>{{ filosofia.nota1 }}</td>
-        <td>{{ filosofia.nota2 }}</td>
-        <td>{{ filosofia.nota3 }}</td>
-        <td>{{ filosofia.nota4 }}</td>
-        <td>{{ filosofia.final }}</td>
+        <th scope="row">Philosophy</th>
+        <td>{{ philosophy.grade1 }}</td>
+        <td>{{ philosophy.grade2 }}</td>
+        <td>{{ philosophy.grade3 }}</td>
+        <td>{{ philosophy.grade4 }}</td>
+        <td>{{ philosophy.final }}</td>
         </tr>
         <tr>
-        <th scope="row">Informatica</th>
-        <td>{{ informatica.nota1 }}</td>
-        <td>{{ informatica.nota2 }}</td>
-        <td>{{ informatica.nota3 }}</td>
-        <td>{{ informatica.nota4 }}</td>
-        <td>{{ informatica.final }}</td>
+        <th scope="row">Technology</th>
+        <td>{{ technology.grade1 }}</td>
+        <td>{{ technology.grade2 }}</td>
+        <td>{{ technology.grade3 }}</td>
+        <td>{{ technology.grade4 }}</td>
+        <td>{{ technology.final }}</td>
         </tr>
 
 
@@ -136,271 +136,269 @@
 
 
 <script setup>
-import {calcularNotas} from "../helper/estudiantes/calculos.js"
+import {calculateGrade} from "../helper/CalculateStudentsgrades.js"
 import { ref, computed } from 'vue'
-import AlumnosDb from '@/table/BaseDatosPruebaAlumnos';
-import {uselogin} from '../stores/loginStore';
-import { obtenerNotas } from "@/helper/estudiantes/obtenerNotas.js";
+import StudentDb from '@/table/DataBaseTestStudent.js'
+import {useLogIn} from '../stores/loginStore';
+import { getGrades } from "@/helper/getGrades.js";
 
-const useStore = uselogin()
+const useStore = useLogIn()
 const id = ref("")
-const nombre = ref("")
-const apellido = ref("")
+const name = ref("")
+const lastName = ref("")
 const edad = ref("")
-const mostrarNotas = obtenerNotas(useStore.username);
+const showGrade = getGrades(useStore.username);
 let i = 0
 
-while(AlumnosDb[i].idAlumno != useStore.username)
+while(StudentDb[i].idStudent != useStore.username)
 {
     i++
 }
-id.value = AlumnosDb[i].idAlumno
-nombre.value = AlumnosDb[i].nombre
-apellido.value = AlumnosDb[i].apellido
-edad.value = AlumnosDb[i].edad
+id.value = StudentDb[i].idStudent
+name.value = StudentDb[i].name
+lastName.value = StudentDb[i].lastName
+edad.value = StudentDb[i].age
 i=0
 
-let biologia;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 1) {
-    biologia = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(biologia.nota1.value, biologia.nota2.value, biologia.nota3.value, biologia.nota4.value))
+let biology;
+if (showGrade !== undefined && showGrade.idAsignatura === 1) {
+    biology = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(biology.grade1.value, biology.grade2.value, biology.grade3.value, biology.grade4.value))
     };
 } else {
-    biologia = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    biology = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let fisica;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 2) {
-    fisica = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(fisica.nota1.value, fisica.nota2.value, fisica.nota3.value, fisica.nota4.value))
+let physics;
+if (showGrade !== undefined && showGrade.idAsignatura === 2) {
+    physics = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(physics.grade1.value, physics.grade2.value, physics.grade3.value, physics.grade4.value))
     };
 } else {
-    fisica = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    physics = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let quimica;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 3) {
-    quimica = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(quimica.nota1.value, quimica.nota2.value, quimica.nota3.value, quimica.nota4.value))
+let chemistry;
+if (showGrade !== undefined && showGrade.idAsignatura === 3) {
+    chemistry = {
+        garde1: ref(showGrade.garde1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(chemistry.garde1.value, chemistry.grade2.value, chemistry.grade3.value, chemistry.grade4.value))
     };
 } else {
-    quimica = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    chemistry = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let economia;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 4) {
-    economia = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(economia.nota1.value, economia.nota2.value, economia.nota3.value, economia.nota4.value))
+let economy;
+if (showGrade !== undefined && showGrade.idAsignatura === 4) {
+    economy = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(economy.grade1.value, economy.grade2.value, economy.grade3.value, economy.grade4.value))
     };
 } else {
-    economia = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    economy = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let artes;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 5) {
-    artes = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(artes.nota1.value, artes.nota2.value, artes.nota3.value, artes.nota4.value))
+let arts;
+if (showGrade !== undefined && showGrade.idAsignatura === 5) {
+    arts = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(arts.grade1.value, arts.grade2.value, arts.grade3.value, arts.grade4.value))
     };
 } else {
-    artes = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    arts = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let espaniol;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 6) {
-    espaniol = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(espaniol.nota1.value, espaniol.nota2.value, espaniol.nota3.value, espaniol.nota4.value))
+let spanish;
+if (showGrade !== undefined && showGrade.idAsignatura === 6) {
+    spanish = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(spanish.grade1.value, spanish.grade2.value, spanish.grade3.value, spanish.grade4.value))
     };
 } else {
-    espaniol = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    spanish = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let ingles;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 7) {
-    ingles = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(ingles.nota1.value, ingles.nota2.value, ingles.nota3.value, ingles.nota4.value))
+let english;
+if (showGrade !== undefined && showGrade.idAsignatura === 7) {
+    english = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(english.grade1.value, english.grade2.value, english.grade3.value, english.grade4.value))
     };
 } else {
-    ingles = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    english = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let matematicas;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 8) {
-    matematicas = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(matematicas.nota1.value, matematicas.nota2.value, matematicas.nota3.value, matematicas.nota4.value))
+let math;
+if (showGrade !== undefined && showGrade.idAsignatura === 8) {
+    math = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(math.grade1.value, math.grade2.value, math.grade3.value, math.grade4.value))
     };
 } else {
-    matematicas = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    math = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let geometria;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 9) {
-    geometria = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(geometria.nota1.value, geometria.nota2.value, geometria.nota3.value, geometria.nota4.value))
+let geometry;
+if (showGrade !== undefined && showGrade.idAsignatura === 9) {
+    geometry = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(geometry.grade1.value, geometry.grade2.value, geometry.grade3.value, geometry.grade4.value))
     };
 } else {
-    geometria = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    geometry = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let estadistica;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 10) {
-    estadistica = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(estadistica.nota1.value, estadistica.nota2.value, estadistica.nota3.value, estadistica.nota4.value))
+let statistics;
+if (showGrade !== undefined && showGrade.idAsignatura === 10) {
+    statistics = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(statistics.grade1.value, statistics.grade2.value, statistics.grade3.value, statistics.grade4.value))
     };
 } else {
-    estadistica = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    statistics = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let filosofia;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 11) {
-    filosofia = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(filosofia.nota1.value, filosofia.nota2.value, filosofia.nota3.value, filosofia.nota4.value))
+let philosophy;
+if (showGrade !== undefined && showGrade.idAsignatura === 11) {
+    philosophy = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(philosophy.grade1.value, philosophy.grade2.value, philosophy.grade3.value, philosophy.grade4.value))
     };
 } else {
-    filosofia = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    philosophy = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
 
-let informatica;
-if (mostrarNotas !== undefined && mostrarNotas.idAsignatura === 12) {
-    informatica = {
-        nota1: ref(mostrarNotas.nota1),
-        nota2: ref(mostrarNotas.nota2),
-        nota3: ref(mostrarNotas.nota3),
-        nota4: ref(mostrarNotas.nota4),
-        final: computed(() => calcularNotas(informatica.nota1.value, informatica.nota2.value, informatica.nota3.value, informatica.nota4.value))
+let technology;
+if (showGrade !== undefined && showGrade.idAsignatura === 12) {
+    technology = {
+        grade1: ref(showGrade.grade1),
+        grade2: ref(showGrade.grade2),
+        grade3: ref(showGrade.grade3),
+        grade4: ref(showGrade.grade4),
+        final: computed(() => calculateGrade(technology.grade1.value, technology.grade2.value, technology.grade3.value, technology.grade4.value))
     };
 } else {
-    informatica = {
-        nota1: ref(0),
-        nota2: ref(0),
-        nota3: ref(0),
-        nota4: ref(0),
+    technology = {
+        grade1: ref(0),
+        grade2: ref(0),
+        grade3: ref(0),
+        grade4: ref(0),
         final: ref(0)
     };
 }
-
-
 </script>
 
 
 
 <style>
-    .contenedor{
+    .container{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
 
-    .notas{
+    .grades{
         margin-top: 40px;
         width: 50vw;   
         border: 2px solid black;

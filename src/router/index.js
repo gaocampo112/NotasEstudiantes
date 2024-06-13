@@ -21,12 +21,12 @@ const router = createRouter({
     {
       path: '/search',
       name: 'search',
-      component: () => import('../components/BuscarEstudiante.vue')
+      component: () => import('../components/searchStudent.vue')
     },
     {
       path: '/califications',
       name: 'califications',
-      component: () => import('../components/EnterCalifications.vue')
+      component: () => import('../components/EnterGrades.vue')
     }
   ]
 })

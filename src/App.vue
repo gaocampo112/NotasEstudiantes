@@ -11,7 +11,6 @@
 
 
 <style scoped>
-/* Contenedor principal de la pagina */
 .general{
     min-height: 100vh;
     margin: 0;

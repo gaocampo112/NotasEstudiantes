@@ -4,30 +4,30 @@
         <Form class="sinbgInForm" @submit="onSubmit"  :validation-schema="schemaLogin">
             <div class="d-flex flex-row mb-2 ">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" v-model="opcionSeleccionada" value="profesor">
-                    <label class="form-check-label" for="flexRadioDefault1">Profesor</label>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" v-model="selecteOption" value="teacher">
+                    <label class="form-check-label" for="flexRadioDefault1">Teacher</label>
                 </div>
                 <div class="form-check ms-4">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" v-model="opcionSeleccionada" value="estudiante">
-                    <label class="form-check-label" for="flexRadioDefault2">Estudiante</label>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" v-model="selecteOption" value="student">
+                    <label class="form-check-label" for="flexRadioDefault2">Student</label>
                 </div>
                 </div>
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-2 d-flex flex-column containerInput">
-                <Field type="text" name="id" id="form2Example1" class="form inputlogin" v-model="usuario"/>
-                <label class="form-label" for="form2Example1">Usuario</label>
+                <Field type="text" name="id" id="form2Example1" class="form inputlogin" v-model="user"/>
+                <label class="form-label" for="form2Example1">User ID</label>
 
             </div>
             <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-2 d-flex flex-column containerInput">
-                <Field type="password" name="password" id="form2Example2" class="form inputlogin" v-model="clave" />
+                <Field type="password" name="password" id="form2Example2" class="form inputlogin" v-model="password" />
                 
-                <label class="form-label" for="form2Example2">Contraseña</label>
+                <label class="form-label" for="form2Example2">Password</label>
 
                 
             </div>
             <!-- Submit button -->
-            <button class="routerlink routerlinkAsignature mt-1" type="submit">Ingresar</button>
+            <button class="routerlink routerlinkSubject mt-1" type="submit">Login</button>
         </Form>
     </div>
 </template>
@@ -37,45 +37,45 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import { schemaLogin } from '@/schemas/validationSchema';
-import AlumnosDb from '@/table/BaseDatosPruebaAlumnos';
-import ProfesorDb from '@/table/BaseDatosPruebaProfesores';
-import {uselogin} from '../stores/loginStore'
+import StudentDb from '@/table/DataBaseTestStudent';
+import TeacherDb from '@/table/DataBaseTestTeacher';
+import {useLogIn} from '../stores/loginStore'
 
-const registrarStore = uselogin();
+const logInStore = useLogIn();
 const router = useRouter();
-const opcionSeleccionada = ref('')
-const usuario = ref('')
-const clave = ref('')
+const selecteOption = ref('')
+const user = ref('')
+const password = ref('')
 
 const onSubmit = () => {
-    if(opcionSeleccionada.value === 'profesor')
+    if(selecteOption.value === 'teacher')
     {
-        for(let i = 0; i < ProfesorDb.length; i++)
+        for(let i = 0; i < TeacherDb.length; i++)
         {
-            if(ProfesorDb[i].idProfesor == usuario.value && ProfesorDb[i].contrasenia == clave.value){
-                registrarStore.iniciarSesion(usuario.value)
+            if(TeacherDb[i].idTeacher == user.value && TeacherDb[i].password == password.value){
+                logInStore.userStore(user.value)
                 router.push({ name: 'teacher' });
                 return
             }
         }
-    }else if(opcionSeleccionada.value === 'estudiante'){
-        for(let i = 0; i < AlumnosDb.length; i++)
+    }else if(selecteOption.value === 'student'){
+        for(let i = 0; i < StudentDb.length; i++)
         {
-            if(AlumnosDb[i].idAlumno == usuario.value && AlumnosDb[i].contrasenia == clave.value){
-                registrarStore.iniciarSesion(usuario.value)
+            if(StudentDb[i].idStudent == user.value && StudentDb[i].password == password.value){
+                logInStore.userStore(user.value)
                 router.push({ name: 'student' });
                 return
             }
         }
 
     }
-    alert("Usuario o contraseña incorrecta") 
+    alert("Incorrect user or password") 
 }
 
 </script>
 
 <style>
-/* Contenedor del login */
+/* Container of Login */
  .containerLogin{
     display: flex;
     align-items: center;
@@ -88,7 +88,7 @@ const onSubmit = () => {
     margin: 0;
 }
 
-/* Formulario de inicio de secion */
+/* Login Form */
 .sinbgInForm{
     display: flex;
     flex-direction: column;
@@ -106,7 +106,7 @@ const onSubmit = () => {
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.37);
 }
 
-/* Estilos del titulo */
+/* Title styles */
 .title{
     display: flex;
     color: white;
@@ -118,8 +118,4 @@ const onSubmit = () => {
     padding: 0px 15px 0px 15px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.37);
 }
-
-
-
-
 </style>

@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 import {ref} from 'vue'
 
-export const uselogin = defineStore('Login',() =>{
+export const useLogIn = defineStore('Login',() =>{
     const username = ref ('')
-    const iniciarSesion = (usernameForm) =>{
+    const userStore = (usernameForm) =>{
         username.value = usernameForm;
     }
-    return{username, iniciarSesion}
+    return{username, userStore}
 })

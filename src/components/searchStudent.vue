@@ -3,16 +3,16 @@
     <div class="row g-4 containerIngresoNotas flex-row">
         <form @submit="onSubmit" @submit.prevent="handleSubmit">
             <div class="d-flex flex-column justify-content-center align-items-center">
-                <h3><strong>Informacion del estudiante</strong></h3>
+                <h3><strong>Student Information</strong></h3>
                 <div class="col-xs">
-                    <label  for="id"><strong>ID del estudiante</strong></label>
-                    <input type="text" class="form-control border border-dark mt-2" placeholder="ID estudiante"  id="id" v-model="idStudent">
+                    <label  for="id"><strong>Student ID</strong></label>
+                    <input type="text" class="form-control border border-dark mt-2" placeholder="Studnet ID"  id="id" v-model="idStudent">
                 </div>
                 <div>
-                    <button class="routerlink routerlinkAsignature ms-4" type="submit">Buscar</button>
-                    <button @click="goToTeacher" class="routerlink routerlinkAsignature ms-4">Regresar</button>
+                    <button @click="goToTeacher" class="routerlink routerlinkSubject ms-4">Back</button>
+                    <button class="routerlink routerlinkSubject ms-4" type="submit">Search</button>
+                    
                 </div>
-
             </div>
         </form>
     </div>
@@ -22,10 +22,10 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useIdIngresaNotas } from '../stores/BuscarEstudianteStore'
-import AlumnosDb from '@/table/BaseDatosPruebaAlumnos';
+import { useSearchStudentId } from '../stores/searchStudentStore'
+import StudentDb from '@/table/DataBaseTestStudent';
 
-const idEstudanteStore = useIdIngresaNotas();
+const serachStudentId = useSearchStudentId();
 const router = useRouter();
 const idStudent = ref('');
 
@@ -34,15 +34,15 @@ const goToTeacher = () => {
 };
 
 const onSubmit = () => {
-    for(let i = 0; i < AlumnosDb.length; i++){
-        if(idStudent.value == AlumnosDb[i].idAlumno)
+    for(let i = 0; i < StudentDb.length; i++){
+        if(idStudent.value == StudentDb[i].idStudent)
         {
-            idEstudanteStore.guardarId(idStudent.value)
+            serachStudentId.saveId(idStudent.value)
             router.push({ name: 'califications' });
             return
         }
     }
-    alert("ID del estudiante no encontrado")
+    alert("Student not found")
 }
     
 
